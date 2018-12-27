@@ -33,7 +33,7 @@ class Counter:
         if self.__barLength == 0:
             bar = ""
         else:
-            a = int(self._percent//(100.0/self.__barLength))
+            a = int((self._percent/100.0)*self.__barLength)
             bar = "[" + "."*a + " "*(self.__barLength-a) + "]"
         if self.__showPercent == 1:
             percent = str(int(self._percent))+"%"
@@ -51,3 +51,10 @@ class Counter:
                 self.__outcputCreator()
                 if int(self._percent) == 100:
                     print "\n"
+
+
+    def reset(self):
+        """Resets(sets back to 0) ticks and percents"""
+        self._percent = 0.0
+        self._tick = 0
+        self.__level = self.__nextLevelValue
